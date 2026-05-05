@@ -48,9 +48,9 @@ ethernet:
   
     # Optional manual IP
   manual_ip:
-    static_ip: STATIC_IP
-    gateway: GATEWAY
-    subnet: SUBNET
+   static_ip: 192.168.1.37
+   gateway: 192.168.1.1
+   subnet: 255.255.255.0
 
 # Enable logging
 logger:
