@@ -113,3 +113,17 @@ text_sensor:
     mac_address:
       name: ESP MAC Address
 
+interval:
+  - interval: 30s
+    then:
+      - if:
+          condition:
+            binary_sensor.is_off: tubeszb_zw_serial_connected
+          then:
+            - delay: 10s
+            - if:
+                condition:
+                  binary_sensor.is_off: tubeszb_zw_serial_connected
+                then:
+                  - logger.log: "Stream server stuck → rebooting"
+                  - button.press: restart_the_esp32_device
